@@ -1,0 +1,63 @@
+/* Main container */
+.user-details-page {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    font-family: "Source Sans 3", sans-serif;
+}
+
+/* Card layout */
+.user-details-card {
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    padding: 70px;
+    max-width: 400px;
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Title styling */
+.user-details-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #ff8c42;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Content styling */
+.user-details-content p {
+    font-size: 16px;
+    margin: 10px 0;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    color: black;
+    /* border-bottom: 1px solid #333; */
+}
+
+.user-details-content p strong {
+    color: #ff8c42;
+}
+
+/* Footer text */
+.user-details-footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ff8c42;
+}
+
+.user-details-footer span {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Error message */
+.error-message {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+}

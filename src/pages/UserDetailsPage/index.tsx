@@ -1,53 +1,7 @@
-// import React, { useState, useEffect } from "react";
-// import { useParams, Link } from "react-router-dom";
-// import { fetchUsers, User } from "../../utils/api";
-// import Loader from "../../components/Loader";
-
-// const UserDetailsPage: React.FC = () => {
-//    const { id } = useParams<{ id: string }>();
-//    const [user, setUser] = useState<User | null>(null);
-//    const [loading, setLoading] = useState(true);
-//    const [error, setError] = useState<string | null>(null);
-
-//    useEffect(() => {
-//        const loadUser = async () => {
-//            setLoading(true);
-//            setError(null);
-//            try {
-//                const data = await fetchUsers<User>(`https://jsonplaceholder.typicode.com/users/${id}`);
-//                setUser(data);
-//            } catch (err: any) {
-//                setError(err.message);
-//            } finally {
-//                setLoading(false);
-//            }
-//        };
-
-//        loadUser();
-//    }, [id]);
-
-//    if (loading) return <Loader />;
-//    if (error) return <div>Error: {error}</div>;
-
-//    return (
-//        <div>
-//            <h1>User Details</h1>
-//            <p>Name: {user?.name}</p>
-//            <p>Email: {user?.email}</p>
-//            <p>Phone: {user?.phone}</p>
-//            <p>Website: {user?.website}</p>
-//            <Link to="/">Back to User List</Link>
-//        </div>
-//    );
-// };
-
-// export default UserDetailsPage;
-
-
 
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { fetchUsers, User } from "../../utils/api";
+import { fetchUsers, User } from "../../services/api";
 import Loader from "../../components/Loader";
 import "./UserDetailPage.css";
 

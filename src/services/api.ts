@@ -1,7 +1,7 @@
 import axios from "axios";
 
-interface Company{
-name:string
+interface Company {
+    name: string
 }
 export interface User {
     id: number;
@@ -9,8 +9,8 @@ export interface User {
     email: string;
     phone?: string;
     website?: string;
-    company:Company;
-    username:string;
+    company: Company;
+    username: string;
 }
 
 export const fetchUsers = async <T>(url: string, retries = 3): Promise<T> => {
@@ -27,4 +27,3 @@ export const fetchUsers = async <T>(url: string, retries = 3): Promise<T> => {
     }
     throw new Error("Unexpected error.");
 };
-       

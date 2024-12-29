@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, ReactNode, Dispatch } from "react";
-import { User } from "../utils/api"; // Assuming you have the User type defined
+import { User } from "../services/api"; // Assuming you have the User type defined
 
 // Define action types
 type UserAction =

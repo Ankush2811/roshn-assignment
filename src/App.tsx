@@ -36,29 +36,32 @@
 
 
 import React from "react";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+// import { Provider } from "react-redux";
+// import store from "./redux/store";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserListPage from "./pages/UserListPage";
 import UserDetailsPage from "./pages/UserDetailsPage";
+import { UserProvider } from "./context/UserContext";
 
 const App: React.FC = () => (
+    <UserProvider>
+        <Router>
+            <Routes>
+                <Route path="/" element={<UserListPage />} />
+                <Route path="/user/:id" element={<UserDetailsPage />} />
+            </Routes>
+        </Router>
+    </UserProvider>
+    // <Provider store={store}>
     // <Router>
-    //     <Routes>
-    //         <Route path="/" element={<UserListPage />} />
-    //         <Route path="/user/:id" element={<UserDetailsPage />} />
-    //     </Routes>
+    //     {/* <Switch> */}
+    //     <Route path="/" element={<UserListPage />} />
+    //   <Route path="/user/:id" element={<UserDetailsPage />} />
+    //         {/* <Route exact path="/" component={UserListPage} /> */}
+    //         {/* <Route path="/user/:id" component={UserDetailsPage} /> */}
+    //     {/* </Switch> */}
     // </Router>
-    <Provider store={store}>
-    <Router>
-        {/* <Switch> */}
-        <Route path="/" element={<UserListPage />} />
-      <Route path="/user/:id" element={<UserDetailsPage />} />
-            {/* <Route exact path="/" component={UserListPage} /> */}
-            {/* <Route path="/user/:id" component={UserDetailsPage} /> */}
-        {/* </Switch> */}
-    </Router>
-</Provider>
+    // </Provider>
 );
 
 export default App;

@@ -1,8 +1,16 @@
 import axios from "axios";
+import { AppError, ERROR_MESSAGES } from "./errorHandling";
 
 interface Company {
     name: string
 }
+
+interface Address {
+    street: string,
+    suite: string,
+    city: string,
+}
+
 export interface User {
     id: number;
     name: string;
@@ -11,6 +19,7 @@ export interface User {
     website?: string;
     company: Company;
     username: string;
+    address: Address;
 }
 
 export const fetchUsers = async <T>(url: string, retries = 3): Promise<T> => {
@@ -20,10 +29,12 @@ export const fetchUsers = async <T>(url: string, retries = 3): Promise<T> => {
             return response.data;
         } catch (error) {
             retries -= 1;
+            console.log(`Retrying... ${retries} attempt(s) remaining.`);
             if (retries === 0) {
-                throw new Error("Failed to fetch data after 3 attempts.");
+                // throw new Error("Failed to fetch data after 3 attempts.");
+                throw new AppError(ERROR_MESSAGES.DATA_LOAD_ERROR);
             }
         }
     }
-    throw new Error("Unexpected error.");
+    throw new AppError(ERROR_MESSAGES.UNKNOWN_ERROR);
 };

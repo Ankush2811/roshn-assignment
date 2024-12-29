@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import { Text } from "@radix-ui/themes"
 import { useParams, Link } from "react-router-dom";
 import { fetchUsers, User } from "../../services/api";
 import Loader from "../../components/Loader";
@@ -38,16 +39,22 @@ const UserDetailsPage: React.FC = () => {
             <div className="user-details-card">
                 <h1 className="user-details-title">User Details</h1>
                 <div className="user-details-content">
-                    <p>
+                    <Text className="user-details-text">
                         <strong>Name:</strong> {user?.name}
-                    </p>
-                    <p>
+                    </Text>
+                    <Text className="user-details-text">
                         <strong>Email:</strong> {user?.email}
-                    </p>
-                    <p>
+                    </Text>
+                    <Text className="user-details-text">
                         <strong>Phone:</strong> {user?.phone}
-                    </p>
-                    <p>
+                    </Text>
+                    <Text className="user-details-text">
+                        <strong>Address:</strong> {`${user?.address?.suite}, ${user?.address?.street}, ${user?.address?.city}`}
+                    </Text>
+                    <Text className="user-details-text">
+                        <strong>Company:</strong> {user?.company?.name}
+                    </Text>
+                    <Text className="user-details-text">
                         <strong>Website:</strong>{" "}
                         <a
                             href={`http://${user?.website}`}
@@ -57,7 +64,7 @@ const UserDetailsPage: React.FC = () => {
                         >
                             {user?.website}
                         </a>
-                    </p>
+                    </Text>
                 </div>
                 <Link to="/" className="back-button">
                     Back to User List

@@ -31,7 +31,6 @@ export const fetchUsers = async <T>(url: string, retries = 3): Promise<T> => {
             retries -= 1;
             console.log(`Retrying... ${retries} attempt(s) remaining.`);
             if (retries === 0) {
-                // throw new Error("Failed to fetch data after 3 attempts.");
                 throw new AppError(ERROR_MESSAGES.DATA_LOAD_ERROR);
             }
         }
